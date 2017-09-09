@@ -1,1 +1,1 @@
-# Unity_Practice
+I am going to use an Unity tutorial project to try and learn Unity. In addition to that, I am going to update the tutorial project to try and add more mechanics to the game. For example, right now, I would like to change the win conditions to the player having to get rid of all of the cubes on the field. However, the squares will respawn after a certain amount of time, so the player has to be quick in trying to pick up the squares.
