@@ -11,4 +11,9 @@ public class Movement : MonoBehaviour {
 
         transform.Translate(horizontal, 0.0f, vertical);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
+    }
 }
