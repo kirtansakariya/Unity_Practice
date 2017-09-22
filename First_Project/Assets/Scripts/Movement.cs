@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
 
-    public Text Counter;
+    public Text counter;
 
 	// Update is called once per frame
 	void Update () {
@@ -18,5 +18,6 @@ public class Movement : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
+        counter.text = "hi";
     }
 }
