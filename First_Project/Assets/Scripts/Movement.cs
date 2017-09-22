@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour {
 
     public Text counter;
+    public int count = 0;
 
-	// Update is called once per frame
-	void Update () {
+    private void Start()
+    {
+        counter.text = "Count: " + count;
+    }
+
+    // Update is called once per frame
+    void Update () {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -18,6 +24,7 @@ public class Movement : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
-        counter.text = "hi";
+        count++;
+        counter.text = "Count: " + count;
     }
 }
