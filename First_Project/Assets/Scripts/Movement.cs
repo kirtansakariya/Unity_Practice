@@ -5,20 +5,25 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour {
 
+    public float speed;
     public Text counter;
-    public int count = 0;
+    private int count = 0;
+    Rigidbody rb;
 
-    private void Start()
+    void Start()
     {
         counter.text = "Count: " + count;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
 
-        transform.Translate(horizontal, 0.0f, vertical);
+        rb.AddForce(movement * speed);
+
 	}
 
     private void OnTriggerEnter(Collider other)
