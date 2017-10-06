@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 459263254}
   m_Layer: 0
   m_Name: Cubes
-  m_TagString: Untagged
+  m_TagString: Cubes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,6 +502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   counter: {fileID: 1514241428}
+  time: 0
+  cubes: {fileID: 0}
 --- !u!1 &707581273
 GameObject:
   m_ObjectHideFlags: 0
