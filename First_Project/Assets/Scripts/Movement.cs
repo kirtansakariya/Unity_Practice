@@ -7,8 +7,9 @@ public class Movement : MonoBehaviour {
 
     public float speed;
     public Text counter;
+    public Text win;
     public float time;
-    public GameObject cubes; //fix
+    public GameObject[] cubes;
     private int count = 0;
     Rigidbody rb;
 
@@ -16,7 +17,9 @@ public class Movement : MonoBehaviour {
     {
         counter.text = "Count: " + count;
         rb = GetComponent<Rigidbody>();
-        time = Time.time; //fix
+        time = Time.time;
+        cubes = GameObject.FindGameObjectsWithTag("Cubes");
+        win.text = "";
     }
 
     // Update is called once per frame
@@ -25,13 +28,25 @@ public class Movement : MonoBehaviour {
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
         rb.AddForce(movement * speed);
-        cubes.SetActive(true); //fix
+        if (count == 12)
+        {
+            win.text = "You Win!";
+        }
+        if (Time.time - time > 12)
+        {
+            time = Time.time;
+            count = 0;
+            counter.text = "Count: " + count;
+            for (int i = 0; i < cubes.Length; i++)
+            {
+                cubes[i].SetActive(true);
+            }
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        //Destroy(other.gameObject);
-        other.gameObject.SetActive(false); //fix
+        other.gameObject.SetActive(false);
         count++;
         counter.text = "Count: " + count;
     }
