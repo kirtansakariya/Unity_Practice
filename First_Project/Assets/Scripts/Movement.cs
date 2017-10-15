@@ -28,11 +28,13 @@ public class Movement : MonoBehaviour {
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
         rb.AddForce(movement * speed);
-        if (count == 12)
+		if (count == 12)
         {
             win.text = "You Win!";
+			Application.Quit ();
+
         }
-        if (Time.time - time > 12)
+        else if (Time.time - time > 12)
         {
             time = Time.time;
             count = 0;
